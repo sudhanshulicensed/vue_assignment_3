@@ -1,6 +1,6 @@
 <template>
     <div class="timer-card">
-        <TimerDisplay />
+        <TimerDisplay :timer="timer"/>
         <ControlButton />
     </div>
 </template>
@@ -11,6 +11,12 @@ import TimerDisplay from "./CountDisplay.vue"
 import ControlButton from "./Control.vue"
 
 export default {
+    props: {
+        timer: {
+            type: Number,
+            default: 0,
+        }
+    },
     name: "TimerCard",
     components: {
         TimerDisplay,
@@ -26,12 +32,14 @@ export default {
 
 <style>
     .timer-card{
-        display: none;
+        /* display: none; */
         box-sizing: border-box;
         width: 200px;
         height: 100px;
         background-color: rgba(248, 239, 186, 0.8);
         border-radius: 5px;
         padding: 1%;
+        margin-bottom: 5px;
+        margin-right: 5px;
     }
 </style>

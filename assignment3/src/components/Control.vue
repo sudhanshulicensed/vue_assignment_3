@@ -1,25 +1,35 @@
 <template>
     <div class="control">
         <div class="start">
-            <p>Start</p>
+            <p @click="start">{{ str }}</p>
         </div>
         <div class="stop">
-            <p>Stop</p>
+            <p @click="stop">{{ stp }}</p>
         </div>
     </div>
 </template>
 
 <script>
+
+
 export default {
     name: "ControlButton",
     data () {
         return {
-
+            str: "Start",
+            stp: "Stop",
+            count: "0",
         }
     },
     methods: {
         start() {
+            this.emit("isClicked")
+            setInterval(function(){
+                
+            }, 1000)
+        },
 
+        stop() {
         }
     }
 }

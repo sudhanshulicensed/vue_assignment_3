@@ -7,10 +7,14 @@
 <script>
 export default {
     name: "TimerDisplay",
-    data() {
-        return {
-            timer: "0",
+    props: {
+        timer: {
+            type: Number,
+            default: 0,
         }
+    },
+    methods: {
+        
     }
 }
 </script>
