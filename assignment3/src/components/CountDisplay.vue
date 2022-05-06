@@ -11,11 +11,8 @@ export default {
         timer: {
             type: Number,
             default: 0,
-        }
+        },
     },
-    methods: {
-        
-    }
 }
 </script>
 

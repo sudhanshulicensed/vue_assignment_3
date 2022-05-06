@@ -1,7 +1,7 @@
 <template>
-    <div class="timer-card">
-        <TimerDisplay :timer="timer"/>
-        <ControlButton />
+    <div class="timer-card" @isClicked="interVal" :timeVal="interValue">
+        <TimerDisplay :timer="count"/>
+        <ControlButton @isStarted="timerStarted" @isStopped="timerClosed" />
     </div>
 </template>
 
@@ -25,14 +25,32 @@ export default {
     data() {
         return {
             name: "0",
+            interValue: null,
+            count: 0,
+            clear: null,
         }
+    },
+    methods: {
+        increaseCount() {
+            this.count++;
+            console.log(this.count)
+        },
+        interVal(val) {
+            this.interValue = val;
+        },
+        timerStarted() {
+            this.close = setInterval(this.increaseCount, 1000)
+        },
+        timerClosed() {
+            clearInterval(this.close);
+            this.count = 0;
+        },
     }
 }
 </script>
 
 <style>
     .timer-card{
-        /* display: none; */
         box-sizing: border-box;
         width: 200px;
         height: 100px;

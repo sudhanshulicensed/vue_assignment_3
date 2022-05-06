@@ -48,7 +48,6 @@ export default {
     //   console.log(card);
     //   console.log(card.timer)
     //   }
-      
     // }
 
   }
