@@ -3,9 +3,8 @@
     <div class="add-timer">
       <p @click="addCard">Click here to add Timer</p>
     </div>
-    <!-- <div class="extra-button" @click="counter">Extra Button</div> -->
-    <div class="holder">
-      <div class="in-holder" v-for="(card, index) in cardList" :key="index">
+    <div class="holder" v-if="cardList.length">
+      <div class="in-holder" v-for="(card, index) in cardList" :key="index" >
       <TimerCard :timer="card.timer" />
       </div>
     </div>
@@ -24,6 +23,7 @@ export default {
   data() {
     return {
       cardList: [],
+      
       content: {
         timer: 0,
       }
@@ -31,9 +31,9 @@ export default {
   },
   methods: {
     addCard() {
-      console.log("Button was clicked");
+      // console.log("Button was clicked");
         this.cardList.push(this.content);
-        console.log(this.cardList);
+        // console.log(this.cardList);
     },
 
     // counter() {
@@ -74,7 +74,7 @@ export default {
 .add-timer{
   box-sizing: border-box;
   display: flex;
-  width: 20%;
+  width: 30%;
   height: 10%;
   align-items: center;
   justify-content: center;
@@ -89,7 +89,9 @@ export default {
 }
 
 .add-timer p{
+  font-family: sans-serif;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .holder{
@@ -97,9 +99,16 @@ export default {
   flex-wrap: wrap;
   box-sizing: border-box;
   width: 100%;
-  height: 570px;
   border-radius: 10px;
   padding: 2%;
   background-color: rgba(24, 44, 97, 0.4);
+}
+
+.padd{
+  padding: 2%;
+}
+
+.holder::after{
+  padding: 2%;
 }
 </style>
